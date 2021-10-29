@@ -20,19 +20,19 @@ public class QuartzConfig {
     // 4.该Bean得到的是FactoryBean所管理的对象实例.
 
     // 配置JobDetail
-    // @Bean
+    @Bean
     public JobDetailFactoryBean alphaJobDetail() {
         JobDetailFactoryBean factoryBean = new JobDetailFactoryBean();
-        factoryBean.setJobClass(AlphaJob.class);
-        factoryBean.setName("alphaJob");
-        factoryBean.setGroup("alphaJobGroup");
-        factoryBean.setDurability(true);
-        factoryBean.setRequestsRecovery(true);
+        factoryBean.setJobClass(AlphaJob.class);    // 指定Job的实现类
+        factoryBean.setName("alphaJob");    // 指定Job的名称
+        factoryBean.setGroup("alphaJobGroup");  // 指定Job的组
+        factoryBean.setDurability(true);    // 指定Job的持久性
+        factoryBean.setRequestsRecovery(true);  // 设置该Job的恢复标志
         return factoryBean;
     }
 
     // 配置Trigger(SimpleTriggerFactoryBean, CronTriggerFactoryBean)
-    // @Bean
+    @Bean
     public SimpleTriggerFactoryBean alphaTrigger(JobDetail alphaJobDetail) {
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
         factoryBean.setJobDetail(alphaJobDetail);

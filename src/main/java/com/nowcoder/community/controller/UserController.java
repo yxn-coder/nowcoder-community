@@ -65,7 +65,7 @@ public class UserController implements CommunityConstant {
     @Value("${qiniu.bucket.header.name}")
     private String headerBucketName;
 
-    @Value("${quniu.bucket.header.url}")
+    @Value("${qiniu.bucket.header.url}")
     private String headerBucketUrl;
 
     @LoginRequired
